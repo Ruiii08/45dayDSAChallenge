@@ -1,0 +1,18 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int common =-7;   //u can take it as any greater negative int
+        int n=nums.length;
+        int i=0;
+        int j=0;
+        while(i<n && j<n){
+            if(nums[j]==common){  //skip if it is common means already there
+                j++;           
+            } else { //add to common n add to the arr once 
+                common=nums[j];
+                nums[i]= common;
+                i++;
+            }
+        }
+        return i;   //no of unique elements
+    }
+}
