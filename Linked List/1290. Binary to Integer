@@ -1,0 +1,22 @@
+class Solution {
+    public int getDecimalValue(ListNode head) {
+        ListNode curr = head;   //reversal of ll
+        ListNode prev = null;
+        ListNode next = head;
+        int x = 1; 
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+        int val = 0;
+        while (prev != null) {   //int val is 2^x * value
+            val += x * prev.val;
+            x = 2 * x;
+            prev = prev.next;
+        }
+        return val;
+    }
+}
