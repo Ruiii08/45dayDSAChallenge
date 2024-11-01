@@ -1,0 +1,17 @@
+class Solution {
+    public int findMinDiff(ArrayList<Integer> arr, int m) {
+        // your code here
+        int n = arr.size();
+        int diff=Integer.MAX_VALUE;
+        Collections.sort(arr); 
+        int i=0;
+        int j=m-1;        
+        while(j<n){       //travel in batch of the no of kids
+            int currDiff=arr.get(j)-arr.get(i);  //between max ele n 1st ele of the batch
+            diff = Math.min(currDiff,diff);     //min diff between diff batches
+            i++;
+            j++;
+        }
+        return diff;
+    }
+}
