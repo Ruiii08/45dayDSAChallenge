@@ -1,0 +1,27 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){   //i+1 to not get same element
+                if(nums[i]+nums[j]==target)
+                return new int[]{i,j} ;
+            }
+        }
+        return new int[]{};
+    }
+}
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+                hm.put(nums[i], i);
+            }
+        for(int i=0;i<nums.length;i++){
+            int b = target - nums[i];
+            if(hm.containsKey(b)==true && hm.get(b)!=i){
+                return new int[]{i,hm.get(b)};
+            }
+        }
+        return new int[]{};
+    }
+}
